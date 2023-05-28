@@ -16,7 +16,6 @@ const TextCardList = ({ data, handleTagClick }) => {
 };
 
 //
-
 const Feed = () => {
   //
 
@@ -27,14 +26,15 @@ const Feed = () => {
   const [searchTimeout, setSearchTimeout] = useState(null);
   const [searchedResults, setSearchedResults] = useState([]);
 
-  const fetchPosts = async () => {
-    const response = await fetch("/api/post");
-    const data = await response.json();
-
-    setAllPosts(data);
-  };
-
   useEffect(() => {
+    const fetchPosts = async () => {
+      const response = await fetch("/api/post");
+      const data = await response.json();
+
+      console.log("data" + data);
+      setAllPosts(data);
+    };
+
     fetchPosts();
   }, []);
 
