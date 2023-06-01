@@ -96,7 +96,7 @@ const Nav = () => {
                   My Profile
                 </Link>
                 <Link
-                  href="/create-text"
+                  href="/create-post"
                   className="dropdown_link"
                   onClick={() => setToggleDropDown(false)}
                 >
