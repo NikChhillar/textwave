@@ -28,7 +28,12 @@ const Feed = () => {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const response = await fetch("/api/post");
+      const response = await fetch("/api/post", {
+        next: {
+          revalidate: 10,
+          cache: "no-store",
+        },
+      });
       const data = await response.json();
 
       console.log("data" + data);
