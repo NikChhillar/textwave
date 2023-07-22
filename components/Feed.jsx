@@ -30,7 +30,7 @@ const Feed = () => {
     const fetchPosts = async () => {
       const response = await fetch("/api/post", {
         next: {
-          revalidate: 10,
+          revalidate: 0,
           cache: "no-store",
         },
       });
