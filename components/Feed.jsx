@@ -27,21 +27,21 @@ const Feed = () => {
   const [searchedResults, setSearchedResults] = useState([]);
 
   useEffect(() => {
-    const fetchPosts = async () => {
-      const response = await fetch("/api/post", {
-        next: {
-          revalidate: 0,
-          cache: "no-store",
-        },
-      });
-      const data = await response.json();
-
-      console.log("data" + data);
-      setAllPosts(data);
-    };
-
     fetchPosts();
   }, []);
+
+  const fetchPosts = async () => {
+    const response = await fetch("/api/post", {
+      next: {
+        revalidate: 0,
+        cache: "no-store",
+      },
+    });
+    const data = await response.json();
+
+    console.log("data" + data);
+    setAllPosts(data);
+  };
 
   const filterPosts = (searchText) => {
     const regularExp = new RegExp(searchText, "i");
